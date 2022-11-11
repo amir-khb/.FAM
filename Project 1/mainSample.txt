@@ -1,0 +1,134 @@
+STARTPROGRAM
+
+#
+This is a 
+multiple line comment
+#
+
+# This is a single line comment #
+
+output("Hello world")
+
+Integer age 
+String prompt = "Age saved successfully"
+output("Enter your age = ")
+input(age)
+output(prompt)
+
+# Testing Functions and Initialization #
+
+Date todayDate = 14-08-1947
+Time todayTime = 12:30:07
+DateTime todayDateTime = 14-08-1947 12:30:07
+
+Real _maxProduct = 50
+Connection server
+Connection database
+Real temperature = PRIM.read_temp()
+Real humidity 
+humidity = PRIM.read_hum()
+
+server.connect_to_url("www.allnighters.com")
+String databaseURL = "www.database.com"
+database.connect_to_url(databaseURL)
+
+server.send_integer(PRIM.read_timestamp())
+
+output(PRIM.read_timestamp())
+output(todayDateTime)
+
+Real product = calculateProduct(temperature , humidity)
+
+IF ( product > _maxProduct )
+	warnUser()
+	database.send_integer(4)
+ENDIF
+
+FUNC Void warnUser()
+	output("Warning Temperature and Humidity product is too high")	
+	PRIM.set_switch_as(4, FALSE)	
+	RETURN NULL
+ENDFUNC
+
+FUNC Real calculateProduct(Real x, Real y)
+	Real result = x * y
+
+	IF (x < 0)
+		RETURN -1	
+	ENDIF		
+
+	RETURN result 
+ENDFUNC
+
+server.disconnect()
+database.disconnect()
+
+
+# TESTING ASSIGNMENTS #
+
+Integer age = 23
+Integer minTemp = -45
+Real realData = 32.123
+Char char1 = 'A'
+String str1 = "Hello World!"
+TrueOrFalse testFalse = FALSE
+TrueOrFalse testTrue = TRUE
+Real currentTemp = PRIM.read_temp()
+
+
+# TESTING ARITHMETIC OPERATIONS #
+
+Integer data3 = age + minTemp 
+Real realData2 = realData * -34.21
+Integer data4 = 12 + 23 + 21 + 2
+data4 = 12 + 23 + (21 * 2)
+Integer data5 = (data4 * 2) + data1
+Real realData3 = realData2 ^ 0.21
+realData3 = realData3 / 2.4
+realData3 = ((45 / 2.4) * 9) + 6
+
+
+# TESTING IF STATEMENTS #
+
+IF(realData2 > realData)
+	ELSEIF(data1 > data2)
+		ELSEIF(data3 > data2 AND data1 EQUALS 23)
+			IF(data3 <= 123)
+				output("data3 is less than 123")
+			ENDIF
+			output("Correct")
+ELSE
+	output("incorrect")
+ENDIF
+
+
+# TESTING LOOPS #
+
+
+FOR (Integer i = 0 , i <= 100 , i = i + 1)
+	Integer j = 1
+	WHILE (j EQUALS 1)
+		output("Valid")
+		j = j - 1
+	ENDWHILE
+	output("Input: ")
+	input(j)
+	multipleOutput()
+ENDFOR
+
+FUNC Void multipleOutput()
+	TrueOrFalse countinue = TRUE
+	Integer counter = 0
+	WHILE (countinue)
+		counter = counter + 1
+		output("Warning Temperature and Humidity product is too high")	
+
+		IF (counter > 9)
+			countinue = FALSE
+		ENDIF
+		
+	ENDWHILE
+	RETURN NULL
+ENDFUNC
+
+ENDPROGRAM
